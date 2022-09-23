@@ -4,7 +4,7 @@ public boolean IsPrime(N)
 	//18, 1*18, 2*9, 3*6 ,
 	//if one factor is I then the pair of i will n/i, so we can check till sqrt(n);
 	
-	for (int i=2;i*i<N;i++)
+	for (int i=2;i*i<=N;i++)
 	{
 		
 	
@@ -25,10 +25,11 @@ public boolean IsPrime(N)
 // given a number want to find all prime numbers from range from 1-N
 public void printprimes(int num)
 {
-	for(int i=2;i*i<num;i++)
+	for(int i=2;i*i<=num;i++)
 	{
 		if(Isprime(i))
 		{
+		
 			print (i);
 		}
 		
@@ -44,14 +45,14 @@ public ArrayList<Integer> seives(int num)
 	  Arrays.fill(prime, true );// intialize all value as true 
 	  prime[0],prime[1]=false;
 	ArrayList<Integer> ans= new ArrayList <Integer>();
-	for(int i=2;i*i<prime.length;i++)
+	for(int i=2;i*i<=prime.length;i++)
 	{
 		if(prime[i])
 		{
 			//going to get the multiples of prime and mark it as false.
 			//want to start from i*i because for example 5. 5*2 is already false by 2  5*3 is already false by 3  5*4 is already false by 2 
 			//lets say if we are starting 5*5 we need to increment with multiple of that value (5) 25,30,35
-			for(int j=i*i;j<n;j+i)
+			for(int j=i*i;j<=n;j+i)
 			{
 				prime[j]=false;
 				
