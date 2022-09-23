@@ -46,7 +46,7 @@ public ArrayList<Integer> seives(int num)
 	ArrayList<Integer> ans= new ArrayList <Integer>();
 	for(int i=2;i*i<prime.length;i++)
 	{
-		if(Isprime(i))
+		if(prime[i])
 		{
 			//going to get the multiples of prime and mark it as false.
 			//want to start from i*i because for example 5. 5*2 is already false by 2  5*3 is already false by 3  5*4 is already false by 2 
