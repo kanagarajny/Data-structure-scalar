@@ -1,0 +1,37 @@
+class Solution
+{
+    public boolean isBipartite(int V, ArrayList<ArrayList<Integer>>adj)
+    {
+        // Code here
+        int vis [] = new int [V];
+        int color [] = new int [V];
+        for (int i =0 ; i < V ; i++){
+            color [i] = -1;
+        }
+        for (int i =0 ; i < V ; i++){
+            if (color [i] == -1){
+               if ( bfs(i,vis,color,adj) == false) return false;
+            }
+        }return true ;
+    }
+    public boolean bfs(int src, int [] vis, int [] color, ArrayList<ArrayList<Integer>> adj){
+        Queue <Integer> q = new LinkedList<Integer>();
+        q.offer(src);
+       
+        color[0] = 0;
+        while (!q.isEmpty()){
+            int node = q.poll();
+            for (int adjnode : adj.get(node)){
+                if (color[adjnode] == -1){
+                    q.offer(adjnode) ;
+                    //vis[adjnode] = 1;
+                    color[adjnode] = 1 - color[node];
+                }
+                
+                   else if (color[adjnode] == color[node]) return false;
+                
+            }
+        }return true;
+        
+    }
+}
